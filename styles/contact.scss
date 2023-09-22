@@ -1,0 +1,249 @@
+@use 'base';
+@use 'main';
+
+.contact-logo {
+    max-width: 212px;
+    width: 100%;
+    @media screen and (min-width: 1024px) {
+        max-width: 390px;
+    }
+}
+
+.contact-wrapper {
+    max-width: 1092px;
+    width: 100%;
+    padding: 124px 0 40px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    @media screen and (min-width: 992px) {
+        padding: 197px 0 80px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    &__left {
+        max-width: 412px;
+        width: 100%;
+        padding: 30px 20px 0;
+        @media screen and (min-width: 992px) {
+           padding: 128px 20px 0;
+        }
+        @media screen and (min-width: 1024px) {
+            padding: 128px 60px 0;
+        }
+
+        p {
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            border-bottom: 4px solid base.$grey-sep;
+            color: base.$main-color;
+            font-size: 21px;
+            font-weight: 400;
+            line-height: 30px;
+        }
+
+        .contact-tel, .contact-email {
+            font-size: 21px;
+            font-weight: 400;
+            line-height: 30px;
+            display: block;
+        }
+
+        .contact-tel {
+            color: base.$main-color;
+            margin-bottom: 20px;
+        }
+
+        .contact-email {
+            color: base.$blue-btn;
+            padding-bottom: 40px;
+            border-bottom: 4px solid base.$grey-sep;
+            margin-bottom: 20px;
+
+            &:hover {
+                color: base.$accent-color;
+            }
+        }
+
+        .facebook-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        svg {
+            color: base.$blue-btn;
+
+            &:hover {
+                color: base.$accent-color;
+                cursor: pointer;
+            }
+        }
+
+        .contact-facebook-link {
+            color: base.$blue-btn;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            &:hover {
+                color: base.$accent-color;
+            }
+        }
+    }
+
+    &__right {
+        max-width: 547px;
+        width: 100%;
+        padding-right: 0;
+        @media screen and (min-width: 992px) {
+            padding-right: 20px;
+        }
+
+        .contact-form {
+            background-color: base.$grey-bg;
+            padding: 20px;
+            @media screen and (min-width: 540px) {
+                border-radius: 12px;
+            }
+
+            h2 {
+                font-size: 22px;
+                font-weight: 500;
+                color: base.$accent-color;
+                margin-bottom: 20px;
+                @media screen and (min-width: 992px) {
+                    background: base.$gradient-team;
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    font-size: 32px;
+                    font-weight: 700;
+                    line-height: 38px;
+                }
+            }
+
+            h3 {
+                color: base.$grey-text;
+                font-size: 14px;
+                font-weight: 700;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                margin-bottom: 22px;
+                @media screen and (min-width: 992px) {
+                    margin-bottom: 10px;
+                }
+            }
+
+            textarea {
+                margin: 20px 0 20px;
+                height: 180px;
+                resize: none;
+            }
+
+            input[type="email"] {
+                margin: 8px 0 20px;
+                @media screen and (min-width: 992px) {
+                    margin: 20px 0 20px;
+                }
+            }
+
+            .input {
+                background-color: base.$white-text;
+                border-radius: 8px;
+                display: block;
+                width: 100%;
+                padding: 10px;
+                color: base.$main-color;
+                border: 1px solid base.$white-text;
+                transition: all 0.3s;
+
+                &::placeholder {
+                    color: base.$grey-text;
+                    font-size: 18px;
+                    font-weight: 400;
+                    line-height: 26px;
+                }
+
+                &:focus {
+                    border: 1px solid base.$blue-btn;
+                }
+            }
+        }
+
+        .btn-form {
+            display: block;
+            margin: 0 auto;
+            max-width: 250px;
+            width: 100%;
+            padding: 12px 0 12px;
+            border-radius: 12px;
+            background-color: base.$blue-btn;
+            box-shadow: 0px 0px 20px 0px rgba(36, 163, 255, 0.50);
+            color: base.$white-text;
+            font-size: 14px;
+            font-weight: 700;
+
+            &:hover {
+                background-color: base.$hover-btn;
+            }
+
+            &:focus {
+                background-color: base.$active-btn;
+            }
+
+            &:disabled {
+                background-color: base.$grey-bg-alt;
+            }
+
+            &.loading {
+                .form-loader {
+                    display: block;
+                    margin: 0 auto;
+                    animation: 1.2s linear infinite both circle--animation;
+                }
+
+                span {
+                    display: none;
+                }
+            }
+        }
+
+        .form-loader {
+            display: none;
+        }
+    }
+}
+
+@keyframes circle--animation {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+
+.mapouter {
+    position: relative;
+    text-align: right;
+    width: 100%;
+    height: 600px;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none;
+    width: 100%;
+    height: 600px;
+}
+
+.gmap_iframe {
+    height: 600px;
+}
